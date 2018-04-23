@@ -1,0 +1,10 @@
+C:\Users\carlonim\source\repos\CsharpDiceGame\CsharpDiceGame\bin\Debug\CsharpDiceGame.exe.config
+C:\Users\carlonim\source\repos\CsharpDiceGame\CsharpDiceGame\bin\Debug\CsharpDiceGame.exe
+C:\Users\carlonim\source\repos\CsharpDiceGame\CsharpDiceGame\bin\Debug\CsharpDiceGame.pdb
+C:\Users\carlonim\source\repos\CsharpDiceGame\CsharpDiceGame\obj\Debug\CsharpDiceGame.csprojResolveAssemblyReference.cache
+C:\Users\carlonim\source\repos\CsharpDiceGame\CsharpDiceGame\obj\Debug\CsharpDiceGame.Form1.resources
+C:\Users\carlonim\source\repos\CsharpDiceGame\CsharpDiceGame\obj\Debug\CsharpDiceGame.Properties.Resources.resources
+C:\Users\carlonim\source\repos\CsharpDiceGame\CsharpDiceGame\obj\Debug\CsharpDiceGame.csproj.GenerateResource.cache
+C:\Users\carlonim\source\repos\CsharpDiceGame\CsharpDiceGame\obj\Debug\CsharpDiceGame.csproj.CoreCompileInputs.cache
+C:\Users\carlonim\source\repos\CsharpDiceGame\CsharpDiceGame\obj\Debug\CsharpDiceGame.exe
+C:\Users\carlonim\source\repos\CsharpDiceGame\CsharpDiceGame\obj\Debug\CsharpDiceGame.pdb
