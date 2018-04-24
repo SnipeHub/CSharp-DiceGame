@@ -41,7 +41,7 @@ namespace CsharpDiceGame
             diceImages[5] = Properties.Resources.dice_5;
             diceImages[6] = Properties.Resources.dice_6;
 
-            dice = new int[6] { 0, 0, 0, 0, 0, 0 }; // The number of dice we have, starting at 0. If you want more die, add another { 0 } in here and then
+            dice = new int[5] { 0, 0, 0, 0, 0 }; // The number of dice we have, starting at 0. If you want more die, add another { 0 } in here and then
             // add another array under RollDice() incrementing it by one and then adding a new dice blank image in the windows form designer
 
             diceResults = new int[6] { 0, 0, 0, 0, 0, 0 }; // whats in the brackets denotes each side of the dice
@@ -91,24 +91,125 @@ namespace CsharpDiceGame
                 }
             }
 
-            lbl_dice1.Image = diceImages[dice[0]];
+            lbl_dice1.Image = diceImages[dice[0]]; // edit this section to add or remove the amount of die
             lbl_dice2.Image = diceImages[dice[1]];
             lbl_dice3.Image = diceImages[dice[2]];
             lbl_dice4.Image = diceImages[dice[3]];
             lbl_dice5.Image = diceImages[dice[4]];
-            lbl_dice6.Image = diceImages[dice[5]];
         }
 
-        private void GetResults()
+        private void GetResults() // here is our score checker, by default all is flagged as off or false.
         {
             bool fiveKind = false, fourKind = false, highStraight = false, lowStraight = false,
-                fullHouse = false, threeKind = false, twoPair = false, onePair = false, haveSix = false,
-                haveFive = false, haveFour = false, haveThree = false, haveTwo = false, haveOne = false; // up to 8.59
+            fullHouse = false, threeKind = false, twoPair = false, onePair = false, haveSix = false,
+            haveFive = false, haveFour = false, haveThree = false, haveTwo = false, haveOne = false;
+
+            for (int i = 0; i < diceResults.Length; i++) // i = 0, if 'i' is less then diceresults in the array list, icrement 'i' by +1
+                // here is our for loop which will check for the true flags
+            {
+                if (diceResults[i] == 5)
+                    fiveKind = true;
+
+                else if (diceResults[i] == 4)
+                    fourKind = true;
+
+                else if (diceResults[1] == 1 &&
+                         diceResults[2] == 1 &&
+                         diceResults[3] == 1 &&
+                         diceResults[4] == 1 &&
+                         diceResults[5] == 1)
+                    highStraight = true;
+
+                else if (diceResults[0] == 1 &&
+                         diceResults[1] == 1 &&
+                         diceResults[2] == 1 &&
+                         diceResults[3] == 1 &&
+                         diceResults[4] == 1)
+                    lowStraight = true;
+
+                else if (diceResults[i] == 3)
+                {
+                    threeKind = true;
+
+                    for (int j = 0; j < diceResults.Length; j++)
+                    {
+                        if (diceResults[j] == 2)
+                            fullHouse = true;
+                    }
+                }
+
+                else if (diceResults[i] == 2)
+                {
+                    onePair = true;
+
+                    for (int j = i + 1; j < diceResults.Length; j++)
+                    {
+                        if (diceResults[j] == 2)
+                            twoPair = true;
+                    }
+                }
+            }
+
+            for (int i = 0; i < dice.Length; i++)
+            {
+                switch (dice[i])
+                {
+                    case 6:
+                        haveSix = true;
+                        break;
+                    case 5:
+                        haveFive = true;
+                        break;
+                    case 4:
+                        haveFour = true;
+                        break;
+                    case 3:
+                        haveThree = true;
+                        break;
+                    case 2:
+                        haveTwo = true;
+                        break;
+                    case 1:
+                        haveOne = true;
+                        break;
+                }
+            }
+
+            if (fiveKind)
+                lbl_displayResults.Text = "Five of a Kind";
+            else if (fourKind)
+                lbl_displayResults.Text = "Four of a Kind";
+            else if (highStraight)
+                lbl_displayResults.Text = "High Straight";
+            else if (lowStraight)
+                lbl_displayResults.Text = "Low Straight";
+            else if (fullHouse)
+                lbl_displayResults.Text = "Full House!";
+            else if (threeKind)
+                lbl_displayResults.Text = "Three of a Kind";
+            else if (twoPair)
+                lbl_displayResults.Text = "Two Pair";
+            else if (onePair)
+                lbl_displayResults.Text = "One Pair";
+            else if (haveSix)
+                lbl_displayResults.Text = "Six High";
+            else if (haveFive)
+                lbl_displayResults.Text = "Five High";
+            else if (haveFour)
+                lbl_displayResults.Text = "Four High";
+            else if (haveThree)
+                lbl_displayResults.Text = "Three High";
+            else if (haveTwo)
+                lbl_displayResults.Text = "Two High";
+            else if (haveOne)
+                lbl_displayResults.Text = "One High";
+
         }
 
         private void ResetResults()
         {
-
+            for (int i = 0; i < diceResults.Length; i++)
+                diceResults[i] = 0; // we need to do this otherwise the loop further up that is incrementing i by one will break things
         }
 
         #endregion
