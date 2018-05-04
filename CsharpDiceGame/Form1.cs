@@ -113,7 +113,7 @@ namespace CsharpDiceGame
                 else if (diceResults[i] == 4)
                     fourKind = true;
 
-                else if (diceResults[1] == 1 &&
+                else if (diceResults[1] == 1 && // && means 'and', this means the value of both sides of it need to be true for the whole comparison to be true.
                          diceResults[2] == 1 &&
                          diceResults[3] == 1 &&
                          diceResults[4] == 1 &&
